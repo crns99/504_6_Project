@@ -1,4 +1,4 @@
-# 504_6-Project
+# 504_6_Project
 
 504호 6조 프로젝트 :smiley:
 
