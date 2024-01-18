@@ -1,0 +1,218 @@
+@charset "UTF-8";
+body{
+  padding:0;
+  margin: 0;
+}
+div{
+  box-sizing: border-box;
+}
+
+/* alert badge */
+.circle{
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 2.5px;
+  background-color: #ff0000;
+  position: absolute;
+  top: -5px;
+  left: 110%;
+}
+
+/* 녹색 텍스트 */
+.green{
+  color: #2699E6;
+}
+
+.wrap{
+  background-color: #F8F8F8;  
+}
+/* 배경 */
+.greenContainer{  
+  height: 100px;
+  background-color: #2699E6;    
+  
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+}
+
+/* 사용자 이름 */
+.greenContainer .name{
+   font-size: 30px;
+  font-weight: bold;
+  color: #ffffff;
+} 
+
+/* 회원 탈퇴 */
+.greenContainer .modify{
+  position: absolute;
+    background-color:#262A2D;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:9px;
+    right:10px;
+}
+
+/* 단골상점 , 상품후기 , 적립금 박스 */
+.summaryContainer{
+  background-color: white;  
+  display: flex;  
+  padding: 30px 50px;  
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+/* 정보 수정 */
+.button {
+    position: absolute;
+    background-color:#262A2D;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    left: 20px;
+  }
+
+/* 내 이용권 */
+.button1{
+    position: absolute;
+    background-color:#262A2D;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:15px;
+    display :inline-block;
+    left: 130px;
+    top: 130px;
+  }
+
+/* 00일 남음 */
+.shippingStatusContainer{
+  padding: 21px 700px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+/* 헬스장,PT,락커,옷 */
+.shippingStatusContainer .text1{
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+/* 글자 간격 */
+.shippingStatusContainer .status{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+/* 글자 크기 */
+.shippingStatusContainer .number{
+  font-size: 31px;
+  font-weight: 500;
+  text-align: center;
+}
+/* 글자 간격 */
+.shippingStatusContainer .text{
+  font-size: 12px;
+  font-weight: normal;
+  color: #c2c2c2;
+  text-align: center;
+}
+
+/*예약 내역, 히스토리*/
+.listContainer{  
+  padding: 0;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+.listContainer .title{
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+}
+.listContainer .item{  
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  color: black;
+  text-decoration: none;  
+  height: 70px;
+  box-sizing: border-box;
+}
+.listContainer .blct{
+  position: absolute;
+    background-color:#262A2D;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:5px;
+    right:50px;
+}
+.listContainer .blct1{
+  position: absolute;
+    background-color:#262A2D;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:4px;
+    top:472px;
+    right:7px;
+}
+.listContainer .blct2{
+  position: absolute;
+    background-color:#262A2D;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    padding:4px;
+    top:652px;
+    right:7px;
+}
+.listContainer .right{
+  margin-left: auto;
+}
+
+.listContainer .smallLight{
+  font-size: 14px;
+  color: #c2c2c2;  
+}
+.listContainer .smallLight > span{
+  margin-left: 10px;
+}
+
+.listContainer .right .blct{
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+
+
+/* 공지사항 이용안내 고객센터 */
+.infoContainer{
+  background-color: white; 
+  display: flex;
+  height: 100px;
+  margin-bottom: 10px;    
+}
+
+.infoContainer .item{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+.infoContainer .item > div:first-child{
+  margin-bottom: 2px;
+}
+p {
+text-indent: 60px;
+}
