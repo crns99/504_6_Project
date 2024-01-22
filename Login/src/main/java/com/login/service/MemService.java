@@ -1,11 +1,7 @@
 package com.login.service;
 
-import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.login.dao.MemDao;
 import com.login.dto.MemDto;
 
@@ -17,9 +13,18 @@ public class MemService {
 	public String idCheck(String id) {
 		return dao.idCheck(id);
 	}
-	public int insertMem(MemDto dto) {
+	
+	
+	public int insert(MemDto dto) {
 		return dao.insertMem(dto);
 	}
+	
+	
+	public int insertTrainer(MemDto dto) { 
+		return dao.insertTrainer(dto); 
+	}
+	 
+	
 	public MemDto login(MemDto dto) {
 		return dao.login(dto);
 	}

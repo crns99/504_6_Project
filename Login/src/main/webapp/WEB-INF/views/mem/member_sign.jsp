@@ -77,7 +77,7 @@ form {
 </head>
 <body>
 
-<form action="insert" method="post" id="joinform">
+<form action="insert" method="post" id="member_sign">
         <h3>회원 가입</h3>
 
         <div class="form-group">
@@ -98,7 +98,7 @@ form {
         </div>
         
         <div class="form-group button-group">
-        	<input type="button" id="id_check" value="중복 확인" >
+        	<input type="button" id="id_ck" value="중복 확인" >
     	</div>
     	
         <div class="form-group">
@@ -179,7 +179,7 @@ function validateForm() {
 }//validateForm
 
 $(function(){
-	$("#id_check").click(function(){
+	$("#id_ck").click(function(){
 		let id = $("#id").val();
 		if(!id){
 			alert("아이디를 입력하세요.")
@@ -197,9 +197,9 @@ $(function(){
 				alert("이미 사용중인 아이디 입니다.");
 			}
 		});
-	});//id_check
+	});//id_ck
 	
-	$("#joinform").submit(function(){
+	$("#member_sign").submit(function(){
 		if($("#id_ck").val() != 1){
 			alert("아이디 중복 체크 하셔야 합니다.");	
 			return false;

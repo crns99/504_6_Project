@@ -140,11 +140,11 @@ body {
 			if (selectedType) {
 				// 일반회원이 선택되었다면
 				if (selectedType.value === 'normal') {
-					window.location.href = 'joinform';
+					window.location.href = 'member_sign?type=일반회원';
 				}
 				// 트레이너가 선택되었다면    
 				else if (selectedType.value === 'trainer') {
-					window.location.href = 'pt_sign.jsp';
+					window.location.href =  'pt_sign?type=트레이너';
 				}
 			} else {
 				alert('회원 유형을 선택해주세요.');

@@ -1,6 +1,7 @@
 package com.login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,14 +48,22 @@ public class MemController {
 		  
 	@PostMapping("/findpw")
 	@ResponseBody public String findPw(MemDto dto) { 
-		System.out.println(dto);
 		return service.findPw(dto); 
 	}
 	
-	@GetMapping("/joinform")
-	public String joinform() {
-		return "mem/joinform";
+	@GetMapping("/member_sign")
+	public String member_sign(@RequestParam("type")String type, Model m ) {
+		m.addAttribute("type", type); 
+		return "mem/member_sign";
 	}
+	
+	
+	@GetMapping("/pt_sign") 
+	public String pt_sign(@RequestParam("type")String type, Model m ) { 
+		m.addAttribute("type", type); 
+		return "mem/pt_sign"; 
+	}
+	 
     
 	@GetMapping("/idCheck")
 	@ResponseBody
@@ -63,26 +72,34 @@ public class MemController {
 		return checkid;//text
 	}
 	
+	@PostMapping("/insertTrainer") 
+	public String insertTrainer(MemDto dto){
+		service.insertTrainer(dto); 
+		return "redirect:login"; 
+	}
+	 
+	 
+	
 	@PostMapping("/insert")
 	public String insert(MemDto dto) {
-		service.insertMem(dto);
-		return "redirect:loginform";
+		service.insert(dto);
+		return "redirect:login";
 	}
 	
-	@GetMapping("/loginform")
-	public String loginform() {
-		return "mem/loginform";
+	@GetMapping("/login")
+	public String login() {
+		return "mem/login";
 	}
 	@PostMapping("/login")
 	public String login(@ModelAttribute("command") @Validated MemDto dto, BindingResult error, Model m) {
 
 		if(error.hasErrors()) {
-			return "mem/loginform";
+			return "mem/login";
 		}
 		MemDto resultDto = service.login(dto);
 		if(resultDto == null) {
 			error.reject("nocode", "로그인 실패: 아이디나 비밀번호가 틀림");	
-			return "mem/loginform";
+			return "mem/login";
 		}else {//로그인 성공
 			m.addAttribute("user", resultDto);
 		}
@@ -127,7 +144,7 @@ public class MemController {
 		if(dto.getId() != null) {
 			return "mem/main";
 		}else {
-			return "mem/loginform";
+			return "mem/login";
 		}
 	}
 }

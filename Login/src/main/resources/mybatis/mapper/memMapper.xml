@@ -8,6 +8,10 @@
 			insert into meminfo values(#{id},#{password}, #{name}, #{gender}, #{address},#{tel},#{email},#{type},#{cert})
 		</insert>
 		
+		<insert id="insertTrainer" parameterType="com.login.dto.MemDto">
+			insert into trainerinfo values(#{id},#{password}, #{name}, #{gender}, #{address},#{tel},#{email},#{type},#{cert})
+		</insert>
+		
 		<update id="updateMem" parameterType="com.login.dto.MemDto">
 			update meminfo set password = #{password}, name = #{name}, address = #{address}, tel = #{tel}, email = #{email}
 			where id = #{id} 
@@ -20,7 +24,7 @@
 		<select id="idCheck" parameterType="String" resultType="String">
 			select id from meminfo where id =#{id}
 		</select>
-	
+		
 		<select id="login" parameterType="com.login.dto.MemDto" resultType="com.login.dto.MemDto">
 			select * from meminfo where id=#{id} and password=#{password}
 		</select> 
