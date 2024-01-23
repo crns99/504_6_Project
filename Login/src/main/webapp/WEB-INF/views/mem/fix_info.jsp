@@ -44,7 +44,7 @@ input[id="addbtn"] {
 </style>
 <body>
 
-	<form action="update" method="post" id="updateform">
+	<form action="fix_info" method="post" id=fix_info>
 		<input type="hidden" name="_method" value="put">
 		<table>
 			<h3>${user.id}님의정보를수정합니다.</h3>
@@ -98,7 +98,7 @@ input[id="addbtn"] {
 		$("#changeButton").click(function() {
 			var isConfirmed = confirm("변경된 내용을 저장하시겠습니까?");
 			if (isConfirmed) {
-				$("#updateform").submit();
+				$("#fix_info").submit();
 			}
 		});
 	});//ready
