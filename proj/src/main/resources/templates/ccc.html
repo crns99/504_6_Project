@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+$( function() {
+$( ".datepicker" ).datepicker({
+
+changeMonth: true,
+changeYear: true,
+showButtonPanel: true,
+closeText: '확인',
+dateFormat: 'yy-mm',
+onClose: function(dateText, inst) {
+var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+$(this).datepicker('setDate', new Date(year, month, 1));
+
+submitForm();
+}
+});
+});
+</script>
+</body>
+<link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
+<script src="/jquery.js"></script>
+<script src="/build/jquery.datetimepicker.full.min.js"></script>
+</html>

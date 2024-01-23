@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>Purchase Page</title>
+</head>
+
+
+	<!-- <form action="/payment" method="post" >
+        <label><input type="checkbox" name="options" value="option1"> 가나다라</label><br>
+        <label><input type="checkbox" name="options" value="option2"> 1234</label><br>
+        <label><input type="checkbox" name="options" value="option3"> abcd</label><br>
+        <input type="submit" value="Proceed to Payment">
+    </form>-->
+
+
+
+	<body>
+  <h1>Purchase Page</h1>
+    
+    <form action="/payment" method="post">
+        <label>
+            <input type="checkbox" name="options" value="Option 1"> 가나다라
+        </label><br>
+        <label>
+            <input type="checkbox" name="options" value="Option 2"> 1234
+        </label><br>
+        <label>
+            <input type="checkbox" name="options" value="Option 3"> abcd
+        </label><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
