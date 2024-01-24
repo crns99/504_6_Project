@@ -10,8 +10,7 @@ public interface MemDao {
 	int insertMem(MemDto dto);
 	int insertTrainer(MemDto dto);
 	MemDto login(MemDto dto);
-	int updateMem(MemDto dto);
-	int deleteMem(String id);
+	int fix_info(MemDto dto);
 	String findId(MemDto dto);
 	String findPw(MemDto dto);
 }

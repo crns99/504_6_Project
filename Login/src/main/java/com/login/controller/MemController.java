@@ -77,7 +77,7 @@ public class MemController {
 		service.insertTrainer(dto); 
 		return "redirect:login"; 
 	}
-	 
+	
 	@PostMapping("/insert")
 	public String insert(MemDto dto) {
 		service.insert(dto);
@@ -110,33 +110,17 @@ public class MemController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/update")
-	public String updateform() {
-		return "mem/updateform";
+	@GetMapping("/fix_info")
+	public String fix_info() {
+		return "mem/fix_info";
 	}
 	
-	@PutMapping("/update")
-	public String update(@ModelAttribute("user") MemDto dto) {
-		service.updateMem(dto);
+	@PutMapping("/fix_info")
+	public String fix_info(@ModelAttribute("user") MemDto dto) {
+		service.fix_info(dto);
 		return "redirect:/main";
 	}
 	
-	@GetMapping("/delete")
-	public String deleteform(String result, Model m) {
-		m.addAttribute("result",result);
-		return "mem/deleteform";
-	}
-	@DeleteMapping("/delete")
-	public String delete(String formpw, @ModelAttribute("user") MemDto dto, SessionStatus status) {
-	
-		int i = service.deleteMem(formpw, dto);
-		if(i == 0) {
-			return "redirect:/delete?result=false";
-		}else {
-			status.setComplete();
-			return "redirect:/main";
-		}
-	}
 	@RequestMapping("/main")
 	public String main(@ModelAttribute("user") MemDto dto) {
 		if(dto.getId() != null) {

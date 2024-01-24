@@ -22,6 +22,4 @@ public class MemDto {
 	private String type;
 	private String cert;
 	
-	
-	
 }
