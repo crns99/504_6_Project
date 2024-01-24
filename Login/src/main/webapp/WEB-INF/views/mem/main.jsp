@@ -59,7 +59,7 @@
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="index.html">logo<span></span></a></h1>
+						<h1 id="fh5co-logo"><a href="main">logo<span></span></a></h1>
 						
 						
 						<!-- START #fh5co-menu-wrap -->

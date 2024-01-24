@@ -166,14 +166,7 @@ a:hover {
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="oauth-link">
-							<!-- 카카오 로그인 이미지로 변경 --> 
-							<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=fa6a69b8ed24cf5cba1b8adabbe773f4&redirect_uri=http://localhost:8088/main">kakao</a><br>
-							<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=388923413219-v73ervunr3h6mb3t3dj3n98jopddcpb5.apps.googleusercontent.com&redirect_uri=http://localhost:8088/main&response_type=code&scope=email profile">google</a>
-						
-						</td>
-					</tr>
+					
 				</table>
 			</form:form>
 		</div>
