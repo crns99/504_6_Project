@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%-- <%@ page contentType="text/html; charset=UTF-8"%> --%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -77,10 +78,10 @@
 									</ul>
 								</li>
 								<li>
-									<a href="#">스케쥴</a>
+									<a href="/test">스케쥴</a>
 								</li>
 								
-								<li><a href="pt_reserve.html">예약 관리</a></li>
+								<li><a href="/calform">예약 관리</a></li>
 						
 								<li><a href="buy_membership.html">회원권 구매</a></li>
 								<li><a href="mypage_user.html">마이페이지</a></li>

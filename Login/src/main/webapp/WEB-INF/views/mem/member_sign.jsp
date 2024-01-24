@@ -90,7 +90,6 @@ form {
 
         <div class="form-group">
             <input name="name" id="name" type="text" placeholder="이름">
-            <input name="type" value="${type}" type="hidden">
         </div>
 
         <div class="form-group">

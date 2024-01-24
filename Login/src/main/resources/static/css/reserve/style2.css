@@ -1,0 +1,142 @@
+.body {
+    width: 100%;
+    /* body의 너비를 100%로 설정 */
+}
+
+/*select 박스*/
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+
+}
+
+.select {
+	display: inline-block;
+	width: 250px;
+	border: 1px solid #999;
+	border-radius: 8px;
+	float: right;
+
+	
+}
+
+.select .selected {
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 5px;
+}
+
+.select .selected .selected-value {
+	max-width: 250px;
+}
+
+.select .selected .arrow {
+	width: 100px;
+	background: url("https://uxwing.com/wp-content/themes/uxwing/download/02-arrow-direction/arrow-bottom.png") no-repeat 70% 50%;
+	background-size: 50% 50%;
+}
+
+.select .selected .selected-value {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+	overflow-y: auto;
+}
+
+.select ul {
+	width: 250px;
+	border: 1px solid #999;
+	display: none;
+	position: absolute;
+	background: #fff;
+	border-top: none;
+	margin: 1px 0 0 -1px;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.select.active ul {
+	display: initial;
+}
+
+.select ul li {
+	padding: 8px 5px;
+}
+
+.select ul li:hover {
+	background: rgba(168, 156, 235, 0.35)
+}
+ 
+
+/* 테이블 코드*/
+
+.reservationTable{
+    border-collapse:collapse;
+    width:1200px; 
+    text-align:center;
+    margin: 0 auto;
+}
+
+.reservationTable th{
+	font-size: 20px;
+	border:solid 1px #cccccc;
+	
+}
+.reservationTable td{
+	font-size: 18px;
+	    border:solid 1px #cccccc;
+}
+.reservationTable tr {
+    height:90px;
+}
+#table_title {
+    height:70px;
+    background-color: #F6F6F6;
+}
+#col1, #col4 {
+  
+}
+#col2, #col3 {
+
+}
+#col5, #col6 {
+
+}
+.center { text-align:center; }
+
+
+
+
+/* 저장 버튼 */
+/* 버튼의 기본 스타일 지정 */
+.time-btn {
+	width: 200px;
+	height: 50px;
+	background-color: lightgray;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 10px;
+	color: #000;
+	font-weight: bold;
+	margin: 10px;
+	margin-bottom: 20px;
+	transition: all 0.2s ease-in-out;
+	float: right;
+	margin-right: 160px;
+}
+
+
+/*input태그*/
+
+input[type="number"] {
+  width: 100px;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  border-color: #000;
+}
