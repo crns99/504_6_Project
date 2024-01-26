@@ -50,7 +50,7 @@ input[id="addbtn"] {
 			<h3>${user.id}님의정보를수정합니다.</h3>
 			<tr>
 				<td>변경하실 비밀번호</td>
-				<td><input name="password" type="password" id="newPassword"></td>
+				<td><input name="password" type="password" id="newPassword" value="${user.password}"></td>
 			</tr>
 
 			<tr>
@@ -60,7 +60,7 @@ input[id="addbtn"] {
 
 			<tr>
 				<td>전화번호</td>
-				<td><input type="tel" id="phoneNumber" name="phoneNumber" value="${user.tel}"></td>
+				<td><input type="tel" id="phoneNumber" name="tel" value="${user.tel}"></td>
 			</tr>
 
 			<tr>

@@ -121,6 +121,28 @@ public class MemController {
 		return "redirect:/main";
 	}
 	
+	@GetMapping("/mypage_user")
+	public String mypage_user() {
+		return "mem/mypage_user";
+	}
+	
+	@GetMapping("/delete")
+	public String deleteform(String result, Model m) {
+		m.addAttribute("result",result);
+		return "mem/deleteform";
+	}
+	@DeleteMapping("/delete")
+	public String delete(String formpw, @ModelAttribute("user") MemDto dto, SessionStatus status) {
+	
+		int i = service.deleteMem(formpw, dto);
+		if(i == 0) {
+			return "redirect:/delete?result=false";
+		}else {
+			status.setComplete();
+			return "redirect:/main";
+		}
+	}
+	
 	@RequestMapping("/main")
 	public String main(@ModelAttribute("user") MemDto dto) {
 		if(dto.getId() != null) {

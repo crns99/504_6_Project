@@ -83,7 +83,7 @@
 								<li><a href="pt_reserve.html">예약 관리</a></li>
 						
 								<li><a href="buy_membership.html">회원권 구매</a></li>
-								<li><a href="mypage_user.html">마이페이지</a></li>
+								<li><a href="mypage_user">마이페이지</a></li>
 								<li><a href="logout">로그아웃</a></li>
 								
 

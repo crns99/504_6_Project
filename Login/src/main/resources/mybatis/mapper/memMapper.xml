@@ -3,7 +3,8 @@
 	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.login.dao.MemDao">
-	
+		
+		<!-- Login -->
 		<insert id="insertMem" parameterType="com.login.dto.MemDto">
 			insert into meminfo values(#{id},#{password}, #{name}, #{gender}, #{address},#{tel},#{email},#{type},#{cert})
 		</insert>
@@ -12,15 +13,6 @@
 			insert into trainerinfo values(#{id},#{password}, #{name}, #{gender}, #{address},#{tel},#{email},#{type},#{cert})
 		</insert>
 		
-		<update id="updateMem" parameterType="com.login.dto.MemDto">
-			update meminfo set password = #{password}, name = #{name}, address = #{address}, tel = #{tel}, email = #{email}
-			where id = #{id} 
-		</update>
-	
-		<delete id="deleteMem" parameterType="String">
-			delete from meminfo where id = #{id}
-		</delete>
-	
 		<select id="idCheck" parameterType="String" resultType="String">
 			select id from meminfo where id =#{id}
 		</select>
@@ -36,6 +28,16 @@
 		<select id="findPw" parameterType="com.login.dto.MemDto" resultType="String">
 			select password from meminfo where name = #{name} and id = #{id} and email = #{email}
 		</select>
+		
+		<!-- Mypage -->
+		<update id="fix_info" parameterType="com.login.dto.MemDto">
+			update meminfo set password = #{password}, name = #{name}, address = #{address}, tel = #{tel}, email = #{email}
+			where id = #{id} 
+		</update>
+		
+		<delete id="deleteMem" parameterType="String">
+			delete from meminfo where id = #{id}
+		</delete>
 		
 	
 	</mapper>
