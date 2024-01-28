@@ -66,6 +66,10 @@ button:hover {
 </head>
 
 <body>
+
+<div>
+		<a href="login">로그인</a>
+	</div>
 <div class="container">
 	<div class="form-container">
 		<form id="findid" action="findid" method="post">

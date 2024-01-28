@@ -126,6 +126,11 @@ public class MemController {
 		return "mem/mypage_user";
 	}
 	
+	@GetMapping("/mypage_pt")
+	public String mypage_pt() {
+		return "mem/mypage_pt";
+	}
+	
 	@GetMapping("/delete")
 	public String deleteform(String result, Model m) {
 		m.addAttribute("result",result);

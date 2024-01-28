@@ -118,6 +118,11 @@ a:hover {
 	font-size: 24px; /* 폰트 크기 */
 	margin: 0; /* 기본 마진 제거 */
 }
+
+.img{
+	width: auto; /* 원하는 너비로 조절 */
+    height: 200px ; /* 비율에 맞게 높이 자동 조절 */
+}
 </style>
 </head>
 <body>
@@ -130,16 +135,16 @@ a:hover {
 			</div>
 
 			<div class="mySlides">
-				<img src="/static/img/2_1.jpg" alt="이미지 1">
+				<img src="images/2_1.jpg" alt="이미지 1" class="img">
 			</div>
 			<div class="mySlides">
-				<img src="2_2" alt="이미지 2">
+				<img src="images/2_2.jpg" alt="이미지 2" class="img">
 			</div>
 			<div class="mySlides">
-				<img src="2_3" alt="이미지 3">
+				<img src="images/2_3.jpg" alt="이미지 3" class="img">
 			</div>
 			<div class="mySlides">
-				<img src="2_4" alt="이미지 4">
+				<img src="images/2_4.jpg" alt="이미지 4" class="img">
 			</div>
 
 		</div>

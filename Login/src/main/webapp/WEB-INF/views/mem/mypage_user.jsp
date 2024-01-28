@@ -95,11 +95,13 @@
     </style>
 </head>
 <body>
+	
+
     <div class="container">
         <table>
             <tr>
                 <td>
-                    <h2>${user.id}</h2>
+                    <h2>${user.name}</h2>
 
                     <a href="fix_info">
                         <input type="button" class="button" value="정보수정">
@@ -129,12 +131,12 @@
         <table class="reservation-table">
             <tr>
                 <td class="reservation-td">
-                   	 <a href="">- 예약이 없습니다 -</a>
+                   	 <a href="calform">- 예약이 없습니다 -</a>
                 </td>
             </tr>
         </table>
         
-        <!-- 예약 히스토리 테이블 -->
+        <!-- 예약 히스토리 테이블 -->	
         <h4 class=reservation>예약 히스토리</h4>
         <table class="reservationHistory-table">
             <tr>

@@ -99,7 +99,7 @@
         <table>
             <tr>
                 <td>
-                    <h2>${user.id}pt트레이너</h2>
+                    <h2>${user.name}pt트레이너</h2>
                     <a href="fix_info">
                         <input type="button" class="button" value="정보수정">
                     </a>
