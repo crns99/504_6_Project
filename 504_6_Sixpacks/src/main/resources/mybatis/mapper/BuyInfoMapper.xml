@@ -1,0 +1,39 @@
+<!-- BuyInfoMapper.xml -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.example.proj.dao.BuyInfoMapper">
+	<select id="getNonEmptyLockerNumbers"
+		resultType="java.lang.String">
+		SELECT lockernumber
+		FROM buyinfo
+		WHERE lockernumber IS NOT NULL AND lockernumber != ''
+	</select>
+
+	<select id="getIDate" resultType="map" parameterType="String">
+		SELECT memberID, enddate
+		FROM buyinfo
+		WHERE lockernumber = #{lockernumber}
+	</select>
+	<resultMap id="BuyInfoResultMap"
+		type="com.example.proj.dto.BuyinfoDto">
+		<id property="id" column="memberID" />
+		<result property="endDate" column="enddate" />
+		<result property="startDate" column="startdate" />
+
+		<result property="lockernumber" column="lockernumber" />
+
+		<result property="ptcount" column="PTcount" />
+		<result property="uniform" column="uniform" />
+
+
+		<!-- 나머지 필드에 대한 매핑 추가 -->
+	</resultMap>
+	<select id="getBuyInfoByMemberId" resultMap="BuyInfoResultMap">
+		SELECT startdate, enddate, lockernumber, PTcount, uniform 
+		FROM buyinfo WHERE memberID = #{memberId}
+	</select>
+	
+	
+</mapper>

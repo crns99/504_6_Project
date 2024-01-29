@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.proj.dao.FreeBoardDao">
+
+	<select id="boardList" parameterType="com.example.proj.vo.FreeBoardVO" resultType="com.example.proj.vo.FreeBoardVO">
+	<![CDATA[
+		SELECT board_id, title, content, reg_user_id, reg_date, IFNULL(view_cnt, 0) AS view_cnt, IFNULL(like_cnt, 0) AS like_cnt
+		FROM   freeboard
+		WHERE  1=1
+	]]>
+		<if test="searchCondition == 0">
+			AND		title LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+		<if test="searchCondition == 1">
+			AND		reg_user_id LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+	<![CDATA[
+		ORDER BY board_id desc 
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+ 	]]>
+	</select>
+
+	<select id="boardCnt" parameterType="com.example.proj.vo.FreeBoardVO" resultType="int">
+	<![CDATA[
+		SELECT count(*)
+		FROM   freeboard
+		WHERE  1=1
+	]]>
+		<if test="searchCondition == 0">
+			AND		title LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+		<if test="searchCondition == 1">
+			AND		reg_user_id LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+	</select>
+	
+	<insert id="boardWriteSave" parameterType="com.example.proj.vo.FreeBoardVO">
+		INSERT INTO freeboard(reg_user_id, title, content, reg_date)
+		VALUES      (#{reg_user_id}, #{title}, #{content}, now())
+	</insert>
+	
+	<select id="boardInfo" parameterType="com.example.proj.vo.FreeBoardVO" resultType="com.example.proj.vo.FreeBoardVO">
+		SELECT board_id, reg_user_id, title, content, reg_date, IFNULL(view_cnt, 0) AS view_cnt, IFNULL(like_cnt, 0) AS like_cnt
+		FROM   freeboard
+		WHERE  board_id = #{board_id}
+	</select>
+	
+	<update id="boardAddView" parameterType="com.example.proj.vo.FreeBoardVO">
+		UPDATE freeboard set view_cnt = IFNULL(view_cnt, 0) + 1
+		WHERE  board_id = #{board_id}
+	</update>
+	
+	<delete id="boardDelete" parameterType="com.example.proj.vo.FreeBoardVO">
+		DELETE FROM freeboard 
+		where       board_id = #{board_id}
+	</delete>
+	
+	<update id="boardUpdateSave" parameterType="com.example.proj.vo.FreeBoardVO">
+		UPDATE freeboard set title=#{title} , content=#{content}, reg_date=now()
+		WHERE  board_id = #{board_id}
+	</update>
+	
+	<select id="boardCommentList" parameterType="com.example.proj.vo.FreeBoardVO" resultType="com.example.proj.vo.FreeBoardVO">
+	<![CDATA[
+		SELECT board_id, comment_user_id, comment_id, comment, reg_date as com_reg_date
+		FROM   freeboardcomment
+		WHERE  1=1
+		AND    board_id = #{board_id}
+	]]>
+	</select>
+	
+	<insert id="boardComment" parameterType="com.example.proj.vo.FreeBoardVO">
+		INSERT INTO freeboardcomment(board_id, comment_user_id, comment, reg_date)
+		VALUES      (#{board_id}, #{comment_user_id}, #{comment}, now())
+	</insert>
+
+	<delete id="boardCommentDel" parameterType="com.example.proj.vo.FreeBoardVO">
+		DELETE FROM freeboardcomment 
+		where       comment_id = #{comment_id}
+	</delete>
+</mapper>

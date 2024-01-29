@@ -1,0 +1,21 @@
+<!-- purchaseSuccessPage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Success</title>
+</head>
+<body>
+    <script>
+        // 팝업창 띄우기
+        var successMessage = window.confirm("구매가 성공적으로 완료되었습니다! 확인을 누르면 현재 페이지로 돌아갑니다.");
+
+        // 확인 버튼을 눌렀을 경우
+        if (successMessage) {
+            // 현재 페이지로 돌아가기
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

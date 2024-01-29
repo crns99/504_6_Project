@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.proj.dao.BoardDao">
+
+	<insert id="insert" parameterType="com.example.proj.vo.BoardVO">
+		INSERT INTO noticeboard(title, content, date, userID)
+		VALUES(#{title}, #{content}, now(), #{id})
+	</insert>
+
+	<select id="noticeBoardList" parameterType="com.example.proj.vo.BoardVO" resultType="com.example.proj.vo.BoardVO">
+	<![CDATA[
+		select noticeboardID as no, userID as id, title as title, content as content, date as regdate, IFNULL(views, 0) AS readcount
+		from   noticeboard
+		where  1=1
+	]]>
+		<if test="searchCondition == 0">
+			AND		title LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+		<if test="searchCondition == 1">
+			AND		userID LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+	<![CDATA[
+		order by noticeboardID desc 
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+ 	]]>
+	</select>
+	
+	<select id="noticeBoardCount" parameterType="com.example.proj.vo.BoardVO" resultType="int">
+	<![CDATA[
+		select count(*)
+		from noticeboard
+		where  1=1
+	]]>	
+		<if test="searchCondition == 0">
+			AND		title LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+		<if test="searchCondition == 1">
+			AND		userID LIKE CONCAT ('%', #{searchKeyword},'%')        
+		</if>
+	</select>	
+	
+	
+	<select id="boardInfo" parameterType="com.example.proj.vo.BoardVO" resultType="com.example.proj.vo.BoardVO">
+		select noticeboardID as no, userID as id, title as title, content as content, date as regdate, IFNULL(views, 0) AS readcount
+		from   noticeboard
+		where  noticeboardID = #{no}
+	</select>
+	
+	<update id="boardUpdate" parameterType="com.example.proj.vo.BoardVO">
+		update noticeboard set title=#{title} , content=#{content}, date=now()
+		where noticeboardID = #{no}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="com.example.proj.vo.BoardVO">
+		delete from noticeboard 
+		where       noticeboardID = #{no}
+	</delete>
+
+	<update id="addViews" parameterType="com.example.proj.vo.BoardVO">
+		update noticeboard set views = IFNULL(views, 0) + 1
+		where noticeboardID = #{no}
+	</update>
+	
+	<!-- <update id="addReadcount" parameterType="int">
+		update board set readcount = readcount + 1 where no = #{no}
+	</update> -->
+
+
+
+	<!-- <select id="boardListSearch" parameterType="map" resultType="member.board.dto.BoardDto">
+		
+		select * from board 
+		<where>
+			<choose>
+				<when test="searchn == 0">
+				title like concat('%',#{search},'%')</when>
+				<when test="searchn == 1"> content like concat('%',#{search},'%') </when>
+				<when test="searchn == 2"> id like concat('%',#{search},'%') </when>
+			</choose>
+		</where> 
+	 
+		order by regdate desc  limit #{start} , #{count}
+ 		
+	</select> -->
+	<!-- <select id="countSearch" resultType="int" parameterType="map">
+		select count(*) from board 
+		<where>
+			<choose>
+				<when test="searchn == 0">
+				title like concat('%',#{search},'%')</when>
+				<when test="searchn == 1"> content like concat('%',#{search},'%') </when>
+				<when test="searchn == 2"> id like concat('%',#{search},'%') </when>
+			</choose>
+		</where> 
+	</select> -->
+
+	<!-- <select id="boardOne" parameterType="int" 
+					resultType="member.board.dto.BoardDto">
+		select * from board where no = #{no}
+	</select> -->
+
+</mapper>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Locker Numbers</title>
+ 		
+					    <style>
+        .highlight {
+            background-color: rgb(0, 128, 192);
+            padding: 10px;
+            display: block; 
+            overflow: hidden;
+            
+        }
+
+        .locker {
+            width: 90%; /* 표 전체의 폭을 조절합니다. */
+            border-collapse: collapse;
+            margin: 20px; /* 표 주변 여백을 설정합니다. */
+            color:black;
+        }
+
+        .locker td {
+			
+            width: 50px; /* 각 셀의 폭을 조절합니다. */
+            height: 70px; /* 각 셀의 높이를 조절합니다. */
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+      
+    </style>
+</head>
+<body>
+
+<table class="locker" id="myTable">
+	<tr th:each="row, rowStat : ${rows}">
+		<td th:each="cell, cellStat : ${row}">
+			<span th:text="${cell.number}"
+				th:classappend="${#lists.contains(nonEmptyLockerNumbers, cell.number.toString()) ? 'highlight' : ''}"></span>
+			<div th:if="${#lists.contains(nonEmptyLockerNumbers, cell.number.toString())}"
+				th:classappend="${#lists.contains(nonEmptyLockerNumbers, cell.number.toString()) ? 'highlight' : ''}">
+				<div th:with="info=${@buyInfoService.getIDate(cell.number.toString())}">
+					<div th:text="${info.memberID}"></div>
+					<div th:text="${info.enddate}"></div>
+				</div>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper
+	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.example.proj.dao.MemDao">
+	
+		<insert id="insertMem" parameterType="com.example.proj.dto.MemDto">
+			insert into meminfo values(#{id},#{password}, #{name}, #{gender}, #{address},#{tel},#{email},#{type},#{cert})
+		</insert>
+		
+		<insert id="insertTrainer" parameterType="com.example.proj.dto.MemDto">
+			insert into trainerinfo values(#{id},#{password}, #{name}, #{gender}, #{address},#{tel},#{email},#{type},#{cert})
+		</insert>
+		
+		<update id="updateMem" parameterType="com.example.proj.dto.MemDto">
+			update meminfo set password = #{password}, name = #{name}, address = #{address}, tel = #{tel}, email = #{email}
+			where id = #{id} 
+		</update>
+	
+		<delete id="deleteMem" parameterType="String">
+			delete from meminfo where id = #{id}
+		</delete>
+	
+		<select id="idCheck" parameterType="String" resultType="String">
+			select id from meminfo where id =#{id}
+		</select>
+		
+		<select id="login" parameterType="com.example.proj.dto.MemDto" resultType="com.example.proj.dto.MemDto">
+			select * from meminfo where id=#{id} and password=#{password}
+		</select> 
+		
+		<select id="findId" parameterType="com.example.proj.dto.MemDto" resultType="String">
+			select id from meminfo where name = #{name} and email = #{email}
+		</select>
+		
+		<select id="findPw" parameterType="com.example.proj.dto.MemDto" resultType="String">
+			select password from meminfo where name = #{name} and id = #{id} and email = #{email}
+		</select>
+		 <select id="selectAll" resultType="com.example.proj.dto.MemDto">
+       		 SELECT * FROM trainerinfo
+      </select>
+       
+    	<select id="getTrainerInfoById" parameterType="String" resultType="com.example.proj.dto.MemDto">
+        SELECT * FROM trainerinfo WHERE id = #{id}
+    	</select>
+    	<delete id="deleteTrainerInfoById" parameterType="String" >
+    	delete from trainerinfo where id= #{id}
+    	</delete>
+    	 <select id="getDataByLockernumber" parameterType="String" resultType="com.example.proj.dto.BuyinfoDto">
+        SELECT memberID, enddate
+        FROM your_table
+        WHERE lockernumber = #{lockernumber}
+    </select>
+
+    <select id="getDataListByLockernumbers" parameterType="java.util.List" resultType="com.example.proj.dto.BuyinfoDto">
+        SELECT lockernumber, memberID, enddate
+        FROM your_table
+        WHERE lockernumber IN
+        <foreach collection="list" item="lockernumber" open="(" separator="," close=")">
+            #{lockernumber}
+        </foreach>
+    </select>
+    
+	<select id="selectAllByMemberID" parameterType="String" resultType="com.example.proj.dto.MemDto">
+        SELECT startdate, enddate, PTcount, lockernumber, uniform FROM buyinfo WHERE memberID = #{id}
+    </select>
+		
+	
+	</mapper>

@@ -1,0 +1,91 @@
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+.select {
+	display: inline-block;
+	width: 250px;
+	border: 1px solid #999;
+	border-radius: 8px;
+	float: right;
+	margin-right: 400px;
+}
+
+.select .selected {
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 5px;
+}
+
+.select .selected .selected-value {
+	max-width: 250px;
+}
+
+.select .selected .arrow {
+	width: 100px;
+	background: url("https://uxwing.com/wp-content/themes/uxwing/download/02-arrow-direction/arrow-bottom.png") no-repeat 70% 50%;
+	background-size: 50% 50%;
+}
+
+.select .selected .selected-value {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+	overflow-y: auto;
+}
+
+.select ul {
+	width: 250px;
+	border: 1px solid #999;
+	display: none;
+	position: absolute;
+	background: #fff;
+	border-top: none;
+	margin: 1px 0 0 -1px;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.select.active ul {
+	display: initial;
+}
+
+.select ul li {
+	padding: 8px 5px;
+}
+
+.select ul li:hover {
+	background: rgba(168, 156, 235, 0.35)
+}
+
+
+/*달력*/
+#calendar {
+	width: 700px;
+	height: 500px;
+	border: 2px solid #000;
+}
+
+#calendarTitle {
+	font-size: 20px;
+}
+
+
+/* 저장 버튼 */
+
+/* 버튼의 기본 스타일 지정 */
+.time-btn-res{
+	background-color: lightgray;
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 10px;
+	color: #000;
+	font-weight: bold;
+	margin: 10px;
+	margin-bottom: 20px;
+	transition: all 0.2s ease-in-out;
+	float: right;
+	margin-right: 400px;
+}
