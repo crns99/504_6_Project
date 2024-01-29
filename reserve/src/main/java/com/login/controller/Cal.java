@@ -19,7 +19,6 @@ import com.login.service.OtReserveService;
 @Controller
 @SessionAttributes("user")
 public class Cal {
-	// selectedDate=2024%2F1%2F22&time=17%3A00
 
 	@ModelAttribute("user")
 	public MemDto getDto() {
@@ -31,13 +30,6 @@ public class Cal {
 	public String calform() {
 		return "pt_reserve/ot_reserve";
 	}
-
-
-//	1. 세션에서 로그인 한 사람 아이디
-//	2. 트레이너 아이디
-//	3. 트아이디 / 날짜 / 시간 count
-//	4 0 > insert
-//	5. view msg
 
 	@Autowired
 	OtReserveService service;

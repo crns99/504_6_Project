@@ -37,4 +37,9 @@ public class PtReserveService {
 	public int checkptReservation(String memberID, Date selectedDate) {
 		return dao.checkptReservation(memberID, selectedDate);
 	}
+	
+	public int checkRestday(String tID, Date selectedDate) {
+		return dao.checkRestday(tID, selectedDate);
+	}
+	
 }

@@ -34,8 +34,8 @@ hr {
 /*datepicker*/
 .datepicker{
 	margin-left: 140px;
-	width: 250px;
-	height: 25px;
+	width: 220px;
+	height: 35px;
 	font-size: 20px;
 }
 
@@ -91,7 +91,10 @@ hr {
  .ui-button:focus { border: 0px solid #cccccc; background-color: transparent; font-weight: normal; color: #2b2b2b; } 
 
 .ui-widget-header .ui-icon {
-  background-image: url('./images/btns.png');
+
+  background-image: url("images/btns.png") !important;
+
+  
 }
 
  .ui-icon-circle-triangle-e { background-position: -20px 0px; background-size: 36px; } 

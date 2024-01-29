@@ -48,7 +48,6 @@
 			cell.align = "center";
 
 			cell.onclick = function () {
-				// 1
 				document.getElementById("selectedDate").value = calendarTableTitle.innerHTML +"/"+this.innerHTML;
 				
 				
@@ -107,7 +106,7 @@
 	<div class="btn-group">
 		<button type="button" class="btn btn-default" onclick="location.href='ot_reserve'">OT / 상담</button>
 		<button type="button" class="btn btn-default">1:1 PT</button>
-		<button type="button" class="btn btn-default" onclick="location.href='/gx_reserve'">GX</button>
+<!-- 		<button type="button" class="btn btn-default" onclick="location.href='gx_reserve'">GX</button> -->
 	</div>
 
 	<script>

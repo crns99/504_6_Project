@@ -20,8 +20,10 @@ import com.login.service.PtReserveService;
 @Controller
 @SessionAttributes("user")
 public class PtReserveController {
-	// selectedDate=2024%2F1%2F22&time=17%3A00
 
+	@Autowired
+	PtReserveService service;
+	
 	@ModelAttribute("user")
 	public MemDto getDto() {
 		return new MemDto();
@@ -33,23 +35,22 @@ public class PtReserveController {
 		return "pt_reserve/pt_reserve";
 	}
 
-	@Autowired
-	PtReserveService service;
-
 	@GetMapping("/ptcal")
 	public String calendar(Model model, @RequestParam("selectedDate") Date selectedDate,
 			@RequestParam("time") String time, @ModelAttribute("user") MemDto dto) {
 
-		int result2 = service.checkptReservation(dto.getId(), selectedDate);
+		int result2 = service.checkptReservation(dto.getId(), selectedDate);//
 		if (result2 > 0) {
 			String tid = service.tid(dto.getId());// ot예약 트레이너 아이디 받아오기
-
+			
+			int rest = service.checkRestday(tid, selectedDate);
+			
 			int ptReservation = service.ptReservation(tid, selectedDate, time);
 
-			if (ptReservation == 0) {
+			if (ptReservation == 0 && rest == 0) {
 				// insert
 				int result = service.insert(dto.getId(), tid, selectedDate, time);
-				model.addAttribute("msg", "예약완료");
+				model.addAttribute("msg", "예약이 완료되었습니다.");
 
 				// update
 				service.updatePTcount(dto.getId());
@@ -58,7 +59,12 @@ public class PtReserveController {
 				model.addAttribute("time", time);
 
 			} else {
-				model.addAttribute("msg", "예약실패");
+				 
+				if(rest != 0) {
+					model.addAttribute("msg","트레이너가 휴가인 날짜입니다.");
+				}else {
+					model.addAttribute("msg", "이미 예약된 시간입니다. 다시 선택하세요");
+				}
 			}
 		}else {
 			return "redirect:/buy_membership";

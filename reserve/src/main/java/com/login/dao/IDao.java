@@ -10,8 +10,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-// import com.login.dto.reservationDto;
-
 @Mapper
 public interface IDao {	
 	
@@ -44,4 +42,21 @@ public interface IDao {
 	@Select("select count(*) from buyinfo where startdate <= #{selectedDate} and enddate >= #{selectedDate} and PTcount > 0 and memberID = #{id}")
 	int checkptReservation(@Param("id")String memberID, @Param("selectedDate") Date selectedDate);
 	
+	//트레이너 id
+	@Select("select count(*) from trainer_schedule where rest_date = DATE_FORMAT(#{selectedDate}, '%Y-%m-%d 00:00:00') and trainerID = #{tid}")
+	int checkRestday(@Param("tid") String tID, @Param("selectedDate") Date selectedDate);
+	
+	
+//	// gx예약
+//	@Insert("insert into gx_reserve (memberID, GXclassID, GXclass_name, classdate)"
+//			+ "	values(#{memberID}, #{GXclassID}, #{GXclass_name}, #{classdate})")
+//	int inserttime(@Param("memberID") String memberID, @Param("GXclassID") int GXclassID, @Param("GXclass_name") String GXclass_name, @Param("classdate") Date classdate);
+//	
+//	@Update("update buyinfo set GXcount = GXcount - 1 memberID =#{id}")
+//	void updategxcnt(GxReserveDto gxcntdto);
+	
+	
+	
+	
+
 }

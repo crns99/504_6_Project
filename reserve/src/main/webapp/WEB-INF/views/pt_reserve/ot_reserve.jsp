@@ -111,8 +111,8 @@
 			onclick="location.href='pt_reserve'">1:1 PT</button>
 
 
-		<button type="button" class="btn btn-default"
-			onclick="location.href='/gx_reserve'">GX</button>
+<!-- 		<button type="button" class="btn btn-default" -->
+<!-- 			onclick="location.href='gx_reserve'">GX</button> -->
 
 	</div>
 
@@ -129,10 +129,10 @@
 			location.href = "pt_reserve.jsp";
 		}  */
 
-		// gx예약 페이지
-		function goTogx_reserve() {
-			location.href = "../gx_reserve/gx_reserve.jsp";
-		}
+// 		// gx예약 페이지
+// 		function goTogx_reserve() {
+// 			location.href = "../gx_reserve/gx_reserve.jsp";
+// 		}
 	</script>
 
 	<hr />
@@ -253,7 +253,7 @@
 				if (leftClicked && rightClicked) {
 					let selectedDate = document.getElementById("selectedDate").value;
 					let time = document.getElementById("time").value;
-					alert(selectedDate + " : " + time)
+					alert(selectedDate + " : " + time);
 					 if (confirm("예약하시겠습니까?")) {
 					        document.getElementById("calendarForm").submit();
 				/* 		// 예약 처리 코드
@@ -265,14 +265,6 @@
 			});
 	
 		</script>
-<!-- 
-		<script type = "text/javascript">
-			function showpage(){
-			document.firm.action = "<c:url value='pt_reserve/pt_reserve'>"	
-			}
-		</script> -->
-
-
 
 	</section>
 
